@@ -2,18 +2,20 @@ import { TbMessage2Check } from "react-icons/tb";
 import { TbSettingsCog } from "react-icons/tb";
 
 
-const Banner = () => {
+const Banner = ( { todos, show, setShow } ) => {
   return (
     <div className='banner'>
         <div className="banner__container">
             <div className="banner__btns">
-                <div className="banner__btn">important</div>
-                <div className="banner__btn">non important</div>
+                <div className={show ? "banner__btn" : "btnActive" } 
+                onClick={() => setShow(!show)} >
+                    {show ? "All courses" : "Done passed"}
+                </div>
             </div>
             <div className="banner__icons">
                 <div className="span banner__icon">
                     <TbMessage2Check />
-                    <span>20</span>
+                    <span>{todos.length}</span>
                 </div>  
                 <div className="span banner__icon">
                     <TbSettingsCog />
