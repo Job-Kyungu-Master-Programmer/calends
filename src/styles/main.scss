@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: white;
+}
+
+
+.container, .webinaire {
+    display: flex;
+}
+
+.webinaire {
+    padding-top: 3em;
+    padding-left: 4em;
+}
+
+
+
+//  DASHBOARD 
+.dash {
+    padding: 2em;
+    width: 20em;
+    height: 15em;
+    border-right: 1px solid #ccc;
+    background: #383838;
+    background-repeat: no-repeat;
+    color: rgb(188, 188, 188);
+    border-radius: 40em 40em 150em 0em;
+
+    &__head {
+        margin-bottom: 2em;
+        width: 80%;
+        min-height: auto;
+    }
+
+    &__user {
+        display: flex;
+    }
+
+    &__image {
+        margin-right: .8em;
+        overflow: hidden;
+        width: 3em; height: 3em;
+        border-radius: 50%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__name {
+        margin-bottom: .5em;
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    &__logout {
+        padding: .4em .8em;
+        border: 1px solid rgba(245, 101, 101, 0.384);
+        background: rgba(237, 69, 69, 0.149);
+        color: rgb(246, 107, 107);
+        border-radius: .5em;
+        cursor: pointer;
+        font-size: .7em;
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            background: rgb(237, 69, 69);
+            color: white;
+        }
+    }
+}
+
+
+
+// HEADER 
+
+.header {
+    padding-top: 3em;
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    &__item {
+        margin-bottom: 1.7em;
+        text-decoration: underline;
+        cursor: pointer;
+        color: #717171;
+    }
+}
+
+
+
+
+// form for NOTE 
+
+.note {
+    padding: 2em;
+
+    &__title {
+        position: relative;
+        margin-bottom: 1em;
+        font-size: 1.8em;
+        color: #11506f;;
+        font-weight: 400;
+
+        &::after {
+            content:"";
+            position: absolute;
+            bottom: -.5em;
+            left: 0;
+            width: 20%;
+            height: .1em;
+            background: #11506f;
+        }
+
+        &__note {
+            margin-bottom: 1em;
+        }
+    }
+
+}
+
+.form {
+    padding-top: 1em;
+    // border: 1px solid red;
+    margin-bottom: 1.8em;
+    width: 30em;
+
+    &__input {
+        margin-bottom: 1em;
+        margin-right: 1em;
+        padding: .9em 1em;
+        border-radius: .5em;
+        border: 0;
+        outline: 1px solid #b7b7b7;
+        transition: outline-offset .5s ease-in-out;
+
+        &:focus {
+            outline-offset: .2em;
+        }
+
+        &::placeholder {
+            color: #afafaf;
+        }
+    }
+
+    &__btn {
+        padding: 1em 1em;
+        border-radius: .5em;
+        width: 35.5%;
+        border: 1px solid #11506f;
+        border: 0;
+        cursor: pointer;
+        background-color: #11506f;
+        transition: background-color .5s ease-in-out;
+
+        &:hover {
+            background-color: #383838;
+        }
+
+        > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; height: 100%;
+            color: #eeeeee;
+        }
+
+        .CiCirclePlus {
+            margin-left: 1em;
+        }
+    }
+}
+
+
+// NOTES 
+.notes {
+    // position: relative;
+    padding-top: 1em;
+    overflow-y: scroll;
+    max-height: 23em;
+    width: 23em;
+    &::-webkit-scrollbar { background: transparent;width:.2em;}
+    &::-webkit-scrollbar-thumb { background: #ccc;}
+
+    &__item {
+        margin-bottom: 1em;
+        padding: 1em 1em .37em 1em;
+        max-width: 20em;
+        border: 1px solid rgb(205, 205, 205);
+        border-radius: .5em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__name {
+        font-weight: 700;
+        margin-bottom: .5em;
+    }
+
+    &__text {
+        padding: 0;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        color: #b7b7b7;
+        max-width: 8em;
+        margin-bottom: .9em;
+    }
+
+    &__content {
+        font-size: 1em;
+    }
+
+    &__bottom {
+        padding-top: .7em;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__author {
+        font-size: .7em;
+        color: #afafaf;
+    }
+
+    &__btn {
+        cursor: pointer;
+        transition: color .5s linear;
+        &:hover {
+            color:#11506f;
+        }
+    }
+
+    &__delete {
+        margin-right: .7em;
+        color: red;
+    }
+
+    &__like {
+        color: rgb(17, 219, 17);
+    }
+}
+
+
+
+// CONTACT
+.contact {
+    padding: 2em;
+
+    input {
+        width: 0;
+    }
+
+    &__search {
+        display: flex;
+        position: relative;
+        margin-bottom: 3em;
+
+        &__input {
+            padding: .7em 1em;
+            width: 20em!important;
+            border-radius: .5em;
+            outline: 0;
+            border: .01em solid #ccc;
+            transition: width .9s ease-in-out;
+        }
+
+        
+        &__icon {
+            display: block;
+            transform: translateX(-20%);
+            background: #11506f;
+            padding: .48em;
+            border-radius: 0 .5em .5em 0;
+            color: #f3f3f3;
+            cursor: pointer;
+        }
+    }
+    
+    &__openSearch { 
+        width: 0;
+        padding: .7em 1em;
+        border-radius: .5em;
+        outline: 0;
+        border: .01em solid #ccc;
+        transition: width .5s ease-in-out;
+    }
+
+    &__title {
+        position: relative;
+        margin-bottom: 1em;
+        font-size: 1.8em;
+        color: #11506f;;
+        font-weight: 400;
+
+        &::after {
+            content:"";
+            position: absolute;
+            bottom: -.5em;
+            left: 0;
+            width: 20%;
+            height: .1em;
+            background: #11506f;
+        }
+    }
+} 
+
+// CONTACTS 
+.utils {
+    // background: green;
+    padding: 1em 1em 0 0;
+    overflow-y: scroll;
+    max-height: 21em;
+    width: 15em;
+    &::-webkit-scrollbar { background: transparent;width:.2em;}
+    &::-webkit-scrollbar-thumb { background: #e5e5e5;}
+
+    &__item {
+        margin-bottom: 1em;
+        position: relative;
+        display: flex;
+        padding: 1em;
+        border: .01em solid #e3e3e3;
+        border-radius: .5em;
+        min-height: auto;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__connected {
+        position: absolute;
+        top: .5em;
+        right: .5em;
+        width: .5em;
+        height: .5em;
+        background: rgb(17, 219, 17);
+        border-radius: 50%;
+    }
+
+    &__image {
+        margin-right: .8em;
+        overflow: hidden;
+        width: 3em; height: 3em;
+        border: .01em solid #cccccc;
+        border-radius: 50%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__name {
+        margin-bottom: .4em;
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+
+    &__phone, &__age {
+        color: #b7b7b7;
+    }
+}
+
+
+// SELECT 
+.select {
+    // padding: 1em;
+    transform: translateX(90%);
+
+    &__item {
+        padding: .7em 1em;
+        border-radius: .5em;
+        border: .01em solid #e1e1e1;
+        outline: 0;
+        cursor: pointer;
+       
+        option {
+            background: green;
+        }
+    }
+}
+
+
+
+// NOTIFICATION 
+.not {
+    position: absolute;
+    bottom: 1em;
+    right: 0;
+    padding: 1.5em;
+    width: 20em;
+    height: 4em;
+    background: white;
+    border: 1px solid #cecece;
+    border-radius: .5em 0 0 .5em;
+
+    &__title {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+    }
+
+    .notification {
+        color: rgb(17, 219, 17);
+    }
+
+    .notificationError {
+        color: red;
+    }
+}
