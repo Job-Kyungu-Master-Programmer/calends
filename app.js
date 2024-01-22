@@ -1,27 +1,31 @@
-
 const express = require('express')
 const app = express()
-const Config = require('./Utils/Config')
+const config = require('./Utils/Config')
 const cors = require('cors')
-const todoRouter = require('./Controllers/Todo')
-const MiddleWare = require('./Utils/Middleware')
-const Logger = require('./Utils/Logger')
+const pubRouter = require('./Controllers/Pub')
+const logger = require('./Utils/Logger')
+const middleware = require('./Utils/Middleware')
+const userRouter = require('./Controllers/User')
+const loginRouter = require('./Controllers/login')
 const mongoose = require('mongoose')
-
 mongoose.set('strictQuery', false)
-mongoose.connect(Config.MONGODB_URI)
+
+//connection 
+mongoose.connect(config.MONGODB_URI)
 .then(result => {
-    Logger.info('Connected to MongoDB')
+    logger.info('Connected to db')
 })
 .catch(error => {
-    Logger.error('Failed no connection')
+    logger.error('failed connexion !')
 })
 
-app.use(express.json())
+//middleware
 app.use(cors())
+app.use(express.json())
 app.use(express.static('build'))
-app.use(MiddleWare.requestLogger)
-app.use('/api/todos', todoRouter)
-app.use(MiddleWare.unknow)
-
+app.use(middleware.requestLogger)
+app.use('/api/pubs', pubRouter)
+app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter)
+app.use(middleware.requestUnknow)
 module.exports = app

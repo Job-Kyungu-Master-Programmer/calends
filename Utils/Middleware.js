@@ -1,18 +1,20 @@
-const Logger = require('./Logger')
+const logger = require('./Logger')
 
-const requestLogger = (request, response,next) => {
-    Logger.info('Method', request.method)
-    Logger.info('Path', request.path)
-    Logger.info('Body : ', request.body)
-    Logger.info('----')
-    next()
+
+const requestLogger = (request, response, next) => {
+     logger.info('Method : ', request.method)
+     logger.info('Path : ', request.path)
+     logger.info('Body : ', request.body)
+     logger.info('===============')
+     next()
 }
 
-const unknow = (request, response) => {
-    response.status(404).send('404 PAGE NOT FOUND')
+const requestUnknow = (request, response) => {
+    response.status(404).send('Page Not Found , Please clicking : ')
+    redirect('/')
 }
 
 module.exports = {
     requestLogger,
-    unknow
+    requestUnknow
 }
